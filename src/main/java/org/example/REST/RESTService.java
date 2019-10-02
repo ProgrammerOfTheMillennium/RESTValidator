@@ -10,17 +10,13 @@ import kong.unirest.UnirestException;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONArray;
+import kong.unirest.json.JSONException;
 import kong.unirest.json.JSONObject;
 
-import org.junit.Before;
-import org.junit.After;
-import org.junit.Test;
 
 //import retrofit2.Retrofit;
 //import retrofit2.converter.gson.GsonConverterFactory;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 
 
@@ -37,67 +33,72 @@ import static org.junit.Assert.assertNotNull;
  */
 public class RESTService
 {
-    @Test
-    public void shouldReturnStatusOkay() throws UnirestException {
-        Map<String, String> headers = new HashMap<String, String>();
+    private JSONObject fullJSON;
+    private JSONObject info;
+    private JSONObject tzinfo;
+    private JSONArray forecast;
+    private JSONObject fact;
+
+    private Map<String, String> headers;
+    private Map<String, Object> params;
+
+    public JSONObject shouldReturnFullJSONObject() throws UnirestException {
+        headers = new HashMap<String, String>();
         headers.put("accept", "application/json");
         headers.put("X-Yandex-API-Key", "70f71ecd-e0a6-4876-bde0-7f4368f85e12");
 
-        Map<String, Object> params = new HashMap<String, Object>();
+        params = new HashMap<String, Object>();
         params.put("lat", "55.755814");
         params.put("lon", "37.617635");
         params.put("lang", "ru_RU");
         params.put("limit", "2");
         params.put("hours", "false");
         params.put("extra", "false");
-//        params.put("url", "https://yandex.ru/pogoda/moscow");
 
+        try {
+            HttpResponse<JsonNode> jsonResponse = Unirest.get("https://api.weather.yandex.ru/v1/forecast?")
+                    .headers(headers)
+                    .queryString(params)
+                    .asJson();
 
-        HttpResponse<JsonNode> jsonResponse = Unirest.get("https://api.weather.yandex.ru/v1/forecast?")
-                .headers(headers)
-                .queryString(params)
-                .asJson();
+            fullJSON = jsonResponse.getBody().getObject();
+            info = fullJSON.getJSONObject("info");
+            tzinfo = info.getJSONObject("tzinfo");
+            forecast = fullJSON.getJSONArray("forecasts");
+            fact = fullJSON.getJSONObject("fact");
 
-//        1. lat - широта (в градусах) соответствует заданной вами;
-//        2. lon - долгота (в градусах) соответствует заданной вами;
-//        3. offset - проверьте часовой пояс;
-//        4. name - проверьте название часового пояса;
-//        5. abbr - проверьте сокращенное название часового пояса;
-//        6. dst - проверьте признак летнего времени;
-//        7. url - проверьте страницу населенного пункта, убедитесь что ссылка правильная, что
-//        широта и долгота внутри ссылки указаны верные;
-//        8. Проверьте длину прогноза, убедитесь что прогноз действительно на два дня;
-//        9. season - проверьте сезон;
-//        10. Проверьте, что код фазы луны на второй день moon_code
-//        соответсвует текстовому коду moon_text
+//            System.out.println("Yandex Pogoda REST API:");
+//            System.out.println(fullJSON);
 
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
 
-        JSONObject jsonObject = jsonResponse.getBody().getObject();
-        JSONObject info = jsonObject.getJSONObject("info");
-        JSONObject tzinfo = info.getJSONObject("tzinfo");
-        JSONArray forecast = jsonObject.getJSONArray("forecasts");
-        JSONObject fact = jsonObject.getJSONObject("fact");
-
-        assertNotNull(jsonResponse.getBody());
-        assertEquals(200, jsonResponse.getStatus());
-
-        System.out.println(jsonObject);
-        System.out.println(info);
-
-        System.out.println("\n");
-        System.out.println(info.getString("lat"));
-        System.out.println(info.getString("lon"));
-
-        System.out.println(tzinfo.getString("offset"));
-        System.out.println(tzinfo.getString("name"));
-        System.out.println(tzinfo.getString("abbr"));
-        System.out.println(tzinfo.getString("dst"));
-
-        System.out.println(info.getString("url"));
-        System.out.println(forecast.length());
-        System.out.println(fact.getString("season"));
-
-        System.out.println(forecast.get(1).toString());
+        return fullJSON;
     }
 
+    public JSONObject getFullJSON() {
+        return fullJSON;
+    }
+    public JSONObject getInfo() {
+        return info;
+    }
+    public JSONObject getTzInfo() {
+        return tzinfo;
+    }
+    public JSONArray getForecast() {
+        return forecast;
+    }
+    public JSONObject getFact() {
+        return fact;
+    }
+
+    public Map<String, String> getHeaders() {
+        return headers;
+    }
+    public Map<String, Object> getParams() {
+        return params;
+    }
 }
