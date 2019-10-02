@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="031ba99f-f5df-4389-94c6-750e3898e6c9" name="Default Changelist" comment="" />
+    <list default="true" id="031ba99f-f5df-4389-94c6-750e3898e6c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1RdMf1BacSVTwE3ODE4OmHxOEJA" />
   <component name="ProjectViewState">
@@ -17,7 +22,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../designpatterns" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -39,7 +44,7 @@
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
-      <module name="RestValidator" />
+      <module name="RESTValidator" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -77,8 +82,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Maven.RestValidator" />
       <item itemvalue="Application.App" />
+      <item itemvalue="Maven.RestValidator" />
     </list>
     <recent_temporary>
       <list>
@@ -100,6 +105,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="300" y="208" width="671" height="688" key="#App" timestamp="1570020153826">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="300" y="208" width="671" height="688" key="#App/0.27.1920.1053@0.27.1920.1053" timestamp="1570020153826" />
     <state x="0" y="211" width="1084" height="752" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1570010539500">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -108,21 +117,21 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="253" y="311" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1569992917134" />
-    <state width="1236" height="277" key="GridCell.Tab.0.bottom" timestamp="1570015591280">
+    <state width="1236" height="278" key="GridCell.Tab.0.bottom" timestamp="1570020164059">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1236" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1570015591280" />
-    <state width="1236" height="277" key="GridCell.Tab.0.center" timestamp="1570015591280">
+    <state width="1236" height="278" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1570020164059" />
+    <state width="1236" height="278" key="GridCell.Tab.0.center" timestamp="1570020164058">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1236" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1570015591280" />
-    <state width="1236" height="277" key="GridCell.Tab.0.left" timestamp="1570015591280">
+    <state width="1236" height="278" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1570020164058" />
+    <state width="1236" height="278" key="GridCell.Tab.0.left" timestamp="1570020164058">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1236" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1570015591280" />
-    <state width="1236" height="277" key="GridCell.Tab.0.right" timestamp="1570015591280">
+    <state width="1236" height="278" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1570020164058" />
+    <state width="1236" height="278" key="GridCell.Tab.0.right" timestamp="1570020164058">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1236" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1570015591280" />
+    <state width="1236" height="278" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1570020164058" />
   </component>
 </project>
