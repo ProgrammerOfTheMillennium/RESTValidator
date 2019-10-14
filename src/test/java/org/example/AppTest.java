@@ -4,10 +4,12 @@ import kong.unirest.Unirest;
 import kong.unirest.json.JSONObject;
 import kong.unirest.json.JSONString;
 import org.example.REST.RESTService;
-import org.junit.Assert;
-import org.junit.Test;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,14 +35,17 @@ import java.util.Map;
  */
 public class AppTest 
 {
+    @BeforeMethod
+    public void setup() {
+    }
+
     @Test
     public void shouldHasCorrectLatitude()
     {
         RESTService rest = new RESTService();
         rest.shouldReturnFullJSONObject();
 
-        System.out.println(rest.getParams().get("lat"));
-
+//        System.out.println(rest.getParams().get("lat"));
         Assert.assertEquals(rest.getParams().get("lat"), rest.getInfo().getString("lat"));
     }
 
@@ -50,8 +55,7 @@ public class AppTest
         RESTService rest = new RESTService();
         rest.shouldReturnFullJSONObject();
 
-        System.out.println(rest.getParams().get("lon"));
-
+//        System.out.println(rest.getParams().get("lon"));
         Assert.assertEquals(rest.getParams().get("lon"), rest.getInfo().getString("lon"));
     }
 
@@ -127,9 +131,9 @@ public class AppTest
         Map<Integer, String> moonPhase = new HashMap<Integer, String>();
 
         moonPhase.put(0, "full-moon");
-        moonPhase.put(1, "decreasing-moon ");
-        moonPhase.put(2, "decreasing-moon ");
-        moonPhase.put(3, "decreasing-moon ");
+        moonPhase.put(1, "decreasing-moon");
+        moonPhase.put(2, "decreasing-moon");
+        moonPhase.put(3, "decreasing-moon");
         moonPhase.put(4, "last-quarter");
         moonPhase.put(5, "decreasing-moon");
         moonPhase.put(6, "decreasing-moon");
@@ -144,7 +148,7 @@ public class AppTest
         moonPhase.put(15, "growing-moon");
 
         JSONObject forecast = new JSONObject(rest.getForecast().get(1).toString());
-        Assert.assertEquals(moonPhase.get(Integer.parseInt(forecast.getString("moon_code"))), forecast.getString("moon_text"));
+        Assert.assertEquals(forecast.getString("moon_text"), moonPhase.get(Integer.parseInt(forecast.getString("moon_code"))));
     }
 
 
